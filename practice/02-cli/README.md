@@ -511,7 +511,7 @@ rm -f file.txt
 **Explanation:**
 - `-f` flag (force) removes files without prompting, even if they're write-protected
 - Overrides `-i` if both are specified
-- Use with extreme caution
+- **Use with extreme caution, particularly when used in combination with `-r`.**
 
 **Common combinations:**
 ```bash
@@ -1049,13 +1049,10 @@ sort -n numbers.txt
 
 ## Connecting Commands with Pipes (|)
 
-**What are pipes?**
-
 A pipe (`|`) connects the output of one command to the input of another command. This allows you to chain commands together to perform complex operations by combining simple tools.
 
 **Basic pipe example:**
-
-**Command:**
+Navigate to the top level directory of this repository, `ds2002-course`. Then run:
 ```bash
 ls -l | grep "README"
 ```
@@ -1097,45 +1094,28 @@ Output redirection allows you to send command output to a file instead of (or in
 
 ### > (Overwrite redirect)
 
-**Use case:** Send command output to a file, overwriting the file if it exists. If the file doesn't exist, it will be created.
+You can use `>` after a command to send output to a file. **The output file will be overwritten if it exists.** If it doesn't exist, it will be created.
 
 **Basic redirect:**
 ```bash
 echo "Hello World" > greeting.txt
 ```
 
-**Example:** Check the file contents:
+Check the file contents:
 ```bash
 $ cat greeting.txt
 Hello World
 ```
 
-**Explanation:** The `>` operator redirects the output of `echo` to `greeting.txt`. If the file already exists, its contents will be completely replaced.
-
-**Redirect command output:**
-```bash
-ls -l > filelist.txt
-```
-
-**Example output:**
-```bash
-$ ls -l > filelist.txt
-$ cat filelist.txt
--rw-r--r-- 1 codespace codespace  1234 Jan 15 14:30 README.md
-drwxr-xr-x 3 codespace codespace  4096 Jan 15 10:15 practice
-drwxr-xr-x 2 codespace codespace  4096 Jan 15 09:00 labs
-```
-
-**Explanation:** Instead of displaying the `ls -l` output on screen, it's saved to `filelist.txt`. The file will contain the directory listing.
+The `>` operator redirects the output of `echo` to `greeting.txt`. If the file already exists, its contents will be completely replaced.
 
 **Combine multiple files:**
 
-**Command:**
 ```bash
 cat list1.txt list2.txt > biglist.txt
 ```
 
-**Example:** If `list1.txt` contains:
+If `list1.txt` contains:
 ```bash
 apple
 banana
@@ -1168,33 +1148,15 @@ $ cat markdown_files.txt
 ./README.md
 ./practice/01-env/README.md
 ./practice/02-cli/README.md
-./labs/lab1-cli.md
+./labs/lab01-cli.md
+...
 ```
 
 **Explanation:** All markdown files found by the `find` command are saved to `markdown_files.txt` instead of being displayed.
 
-**Redirect with find -exec:**
-```bash
-find . -type f -exec ls -lh {} \; > filelist.txt
-```
-
-**Example output in file:**
-```bash
-$ cat filelist.txt
--rw-r--r-- 1 codespace codespace 1.2K Jan 15 14:30 ./README.md
--rw-r--r-- 1 codespace codespace 2.1K Jan 15 10:15 ./practice/01-env/README.md
--rw-r--r-- 1 codespace codespace  856 Jan 15 09:00 ./script.sh
-```
-
-**Explanation:**
-- `find . -type f` finds all regular files in current directory and subdirectories
-- `-exec ls -lh {} \;` executes `ls -lh` on each file found (`{}` is replaced with each filename)
-- `> filelist.txt` redirects all the output to the file
-- This creates a detailed listing of all files with their sizes in human-readable format
-
 ### >> (Append redirect)
 
-**Use case:** Append command output to the end of a file without overwriting existing content. If the file doesn't exist, it will be created.
+Use the `>>` to append command output to the end of a file without overwriting existing content. If the file doesn't exist, it will be created.
 
 **Append to file:**
 ```bash
@@ -1203,9 +1165,13 @@ echo "Second line" >> log.txt
 echo "Third line" >> log.txt
 ```
 
-**Example:** Check the file contents:
+Check the file contents:
 ```bash
-$ cat log.txt
+cat log.txt
+```
+
+You should get:
+```bash
 First line
 Second line
 Third line
@@ -1213,31 +1179,7 @@ Third line
 
 **Explanation:** The first `echo` uses `>` to create/overwrite the file. Subsequent `echo` commands use `>>` to append, preserving previous content.
 
-**Append command output:**
-```bash
-date >> log.txt
-```
-
-**Example output:**
-```bash
-$ cat log.txt
-First line
-Second line
-Third line
-Mon Jan 15 15:30:45 UTC 2024
-```
-
-**Explanation:** The current date and time are appended to the end of `log.txt` without removing existing content. Useful for logging.
-
-**Append find results:**
-```bash
-find . -name "*.py" >> all_files.txt
-find . -name "*.sh" >> all_files.txt
-```
-
-**Explanation:** Multiple search results can be combined into a single file by using `>>` for each command.
-
-### Key differences
+### Key differences `>` vs `>>`
 
 - **`>` (overwrite):** Replaces file contents completely. Use when you want a fresh file.
 - **`>>` (append):** Adds to the end of the file. Use for logging or accumulating results.
@@ -1269,7 +1211,7 @@ echo $HOME
 
 **Common built-in environment variables:**
 
-**Command:**
+Run the following echo commands one after another:
 ```bash
 echo $HOME
 echo $USER
@@ -1277,7 +1219,7 @@ echo $PWD
 echo $PATH
 ```
 
-**Example output:**
+Example output:
 ```bash
 /home/codespace
 vscode
@@ -1285,7 +1227,6 @@ vscode
 /usr/local/bin:/usr/bin:/bin
 ```
 
-**Explanation:**
 - `$HOME` - Your home directory path
 - `$USER` - Your username
 - `$PWD` - Current working directory (same as `pwd` command output)
@@ -1293,36 +1234,36 @@ vscode
 
 **View all environment variables:**
 
-**Command:**
+Run this command to all environment variables:
 ```bash
 env
 ```
 
-**Example output:**
+Example Output:
 ```bash
 HOME=/home/codespace
 USER=vscode
 PATH=/usr/local/bin:/usr/bin:/bin
 SHELL=/bin/bash
-...
+... # many more
 ```
 
-**Explanation:** The `env` command displays all environment variables currently set in your session. This is useful for debugging or understanding your system configuration.
+The `env` command displays all environment variables currently set in your session. This is useful for debugging or understanding your system configuration.
 
 **Set an environment variable (current session only):**
 
-**Command:**
+You can set your own environment variables like so: 
 ```bash
 export MY_VAR="Hello World"
 echo $MY_VAR
 ```
 
-**Example output:**
+Output:**
 ```bash
 Hello World
 ```
 
-**Explanation:** 
+**Consider:** 
 - `export` makes the variable available to child processes
 - Variable names are typically UPPERCASE (convention, not required)
 - The value is assigned with `=` (no spaces around `=`)
@@ -1332,13 +1273,13 @@ Hello World
 
 **Use environment variables in commands:**
 
-**Command:**
+You can use environment variables as placeholders in your commands. They will be evaluated when you execute the command. Try this:
 ```bash
 cd $HOME
 ls $HOME
 ```
 
-**Explanation:** You can use environment variables anywhere in commands. The shell replaces `$VARIABLE_NAME` with its value before executing the command.
+The shell replaces variable with its value before executing the command.
 
 **Why are environment variables useful?**
 - They provide a way to configure programs without hardcoding paths

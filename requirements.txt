@@ -13,3 +13,5 @@ pymongo
 chalice
 awscli
 mysqlclient
+matplotlib
+pandas

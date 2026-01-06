@@ -16,6 +16,8 @@ dependencies:
   - redis-server
   - redis-py
   - mongodb
+  - matplotlib
+  - pandas
   - pip
   - pip:
     - requests
