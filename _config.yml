@@ -34,5 +34,4 @@ exclude:
   - dataprojects/
   - notebooks/
   - data/
-  - labs/
 
