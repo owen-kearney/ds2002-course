@@ -675,7 +675,11 @@ Note that you cannot use `curl` to fetch password-restricted resources (i.e. fro
 Another useful trick with `curl` is to find your public IP address:
 
 ```bash
-$ curl ifconfig.me
+curl ifconfig.me
+```
+
+Example output:
+```bash
 199.111.240.7
 ```
 
@@ -688,14 +692,16 @@ SSH connections look very similar to email addresses, in the form of USER @ HOST
 Try a connection using a password:
 
 ```bash
-ssh ds2002@34.201.203.207
+ssh ds2002@54.234.9.240
 ```
-Connect using the password given to you in the Canvas instructions for this lab.
+Connect using the IP and password given to you in the Canvas instructions for this lab.
 
 1. Within the home directory of this shared user account, create a subdirectory named from your UVA computing ID, i.e. `atr8ec`. Create a `README.md` file within that folder that includes your full name.
 2. Check the login status of other users with the command `last -i`.
 3. View the `history` of this account. Since all students are sharing a single account name, you'll see the history of other students included.
 4. To leave the SSH session, type `exit`.
+
+Access to this Linux instance will be revoked after this assignment for this lab closes.
 
 ## Your Turn
 
