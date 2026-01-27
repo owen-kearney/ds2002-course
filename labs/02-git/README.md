@@ -2,8 +2,6 @@
 
 Follow all the steps below for practice using GitHub. You an use your web browser to complete these steps, or the terminal if you like.
 
-Create a single GitHub Gist to submit the URLs you create in these steps, and submit it for grading.
-
 ## Tasks: Git/GitHub Basics
 
 When setting up `git` CLI authentication, I suggest setting up personal access token, see [Setup instructions](../setup/README.md). If you have this set up already, you do not need to change.
