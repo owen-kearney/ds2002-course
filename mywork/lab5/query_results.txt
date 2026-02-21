@@ -1,0 +1,11 @@
+ratid	rat_name	rat_weight	cookieid	type_of_cookie	diameter
+1	Frederick	150	3	peanut butter	6
+2	Mohammad	125	9	snickerdoodle	5
+3	Anya	200	7	gingerbread	7
+4	Rachaad	168	10	butter	8
+5	Armando	400	4	chocolate chip	11
+6	Tabitha	110	1	chocolate chip	5
+7	Bea	147	5	oatmeal raisin	5
+8	Melissa	165	2	sugar	4
+9	Richard	185	8	shortbread	6
+11	Elaina	150	11	chocolate chip	20
