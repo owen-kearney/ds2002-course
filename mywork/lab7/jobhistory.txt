@@ -1,0 +1,26 @@
+JobID           JobName  Partition    Account  AllocCPUS      State ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- -------- 
+10285917     ood_vscode interacti+     ds2002          2    RUNNING      0:0 
+10285917.ba+      batch                ds2002          2    RUNNING      0:0 
+10285920     serial-bo+ standard-+     ds2002          1  COMPLETED      0:0 
+10285920.ba+      batch                ds2002          1  COMPLETED      0:0 
+10285979_1   jobarray-+ standard-+     ds2002          1     FAILED      1:0 
+10285979_1.+      batch                ds2002          1     FAILED      1:0 
+10285979_2   jobarray-+ standard-+     ds2002          1     FAILED      1:0 
+10285979_2.+      batch                ds2002          1     FAILED      1:0 
+10285979_3   jobarray-+ standard-+     ds2002          1     FAILED      1:0 
+10285979_3.+      batch                ds2002          1     FAILED      1:0 
+10285979_4   jobarray-+ standard-+     ds2002          1     FAILED      1:0 
+10285979_4.+      batch                ds2002          1     FAILED      1:0 
+10285979_5   jobarray-+ standard-+     ds2002          1     FAILED      1:0 
+10285979_5.+      batch                ds2002          1     FAILED      1:0 
+10286290_1   jobarray-+ standard-+     ds2002          1  COMPLETED      0:0 
+10286290_1.+      batch                ds2002          1  COMPLETED      0:0 
+10286290_2   jobarray-+ standard-+     ds2002          1  COMPLETED      0:0 
+10286290_2.+      batch                ds2002          1  COMPLETED      0:0 
+10286290_3   jobarray-+ standard-+     ds2002          1  COMPLETED      0:0 
+10286290_3.+      batch                ds2002          1  COMPLETED      0:0 
+10286290_4   jobarray-+ standard-+     ds2002          1  COMPLETED      0:0 
+10286290_4.+      batch                ds2002          1  COMPLETED      0:0 
+10286290_5   jobarray-+ standard-+     ds2002          1  COMPLETED      0:0 
+10286290_5.+      batch                ds2002          1  COMPLETED      0:0 

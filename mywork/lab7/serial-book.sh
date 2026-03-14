@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH --account=ds2002
+#SBATCH --job-name=serial-book
+#SBATCH --output=serial-book-%j.out
+#SBATCH --error=serial-book-%j.err
+#SBATCH --partition=standard
+#SBATCH --time=00:10:00
+#SBATCH --mem=8G
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+
+INPUT="book-1.txt"
+OUTPUT="results-1.csv"
+
+module load miniforge
+source activate ds2002
+python ~/ds2002-course/labs/07-hpc/process-book.py book-1.txt results-1.csv
